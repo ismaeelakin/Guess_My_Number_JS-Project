@@ -6,10 +6,6 @@ A small browser game with high/low hints, a session best score and keyboard cont
 
 [Open the live demo](https://ismaeelakin.github.io/Guess_My_Number_JS-Project/)
 
-## Play
-
-Serve the repository with `python -m http.server 8092 --bind 127.0.0.1`, then open <http://127.0.0.1:8092/final/>. No dependencies or build step are needed. ES modules require a local server.
-
 ## Features
 
 - Submit with Enter or the Check number button.
@@ -17,6 +13,14 @@ Serve the repository with `python -m http.server 8092 --bind 127.0.0.1`, then op
 - A completed round stays locked until New round is selected.
 - Reset preserves the best score for this page session.
 - Guess history makes previous choices visible.
+
+## Tech stack
+
+HTML, CSS and JavaScript modules. The game rules use Node.js for tests; the browser app needs no packages.
+
+## Play
+
+Serve the repository with `python -m http.server 8092 --bind 127.0.0.1`, then open <http://127.0.0.1:8092/final/>. No dependencies or build step are needed. ES modules require a local server.
 
 ## Architecture
 
