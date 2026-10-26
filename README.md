@@ -1,37 +1,41 @@
 # Guess My Number
 
-A browser-based JavaScript learning project: guess a hidden number from 1 to 20, follow the high/low hints, and try to finish with the best score.
+A small browser game with high/low hints, a session best score and keyboard controls. Find the hidden integer from 1 to 20 before the points run out.
 
-## Run locally
+![Game screen](docs/game.png)
 
-1. Clone or download this repository.
-2. Open `final/index.html` in a modern browser.
-3. Enter a number and click **Check!**. Use **Again!** to start another round.
+## Play
 
-The game uses plain HTML, CSS and JavaScript. No package installation or build step is required.
+Serve the repository with `python -m http.server 8092 --bind 127.0.0.1`, then open <http://127.0.0.1:8092/final/>. No dependencies or build step are needed. ES modules require a local server.
 
-## Repository layout
+## Features
 
-- `final/index.html` — game page.
-- `final/style.css` — visual styling.
-- `final/script.js` — random number generation, DOM events, hints, score and reset logic.
-- `starter/` — companion starter files for the learning exercise.
+- Submit with Enter or the Check number button.
+- Invalid inputs and repeated guesses do not cost points.
+- A completed round stays locked until New round is selected.
+- Reset preserves the best score for this page session.
+- Guess history makes previous choices visible.
 
-## Current behavior
+## Architecture
 
-- Each round chooses an integer between 1 and 20 and starts with a score of 20.
-- Incorrect guesses reduce the displayed score and produce a high/low hint.
-- A correct guess reveals the number and updates the high score.
-- **Again!** resets the round while retaining the high score for the current page session. Reloading the page clears it.
+```mermaid
+flowchart LR
+  Input[Form submission] --> Rules[game.mjs: validate and update round]
+  Rules --> State[Immutable round state]
+  State --> View[script.js: render text and controls]
+  Reset[New round] --> State
+```
 
-## Learning focus
+The rule functions are independent of the DOM. The browser adapter handles focus, events and the session best score. Rendering uses textContent; input never becomes HTML.
 
-DOM selection and updates, click event handlers, number conversion, conditional branches, random integers, and extracting repeated message updates into a function. The source retains commented learning steps and the reset challenge.
+## Verify
 
-## Known limitations
+```sh
+node --test test/game.test.mjs
+```
 
-The current implementation does not fully validate that a guess is an integer from 1 to 20, and it does not lock the round after a win or loss. High scores are stored in memory only. These are useful follow-up improvements; this repository is a learning exercise rather than a production game.
+Five tests cover random bounds, invalid and duplicate guesses, completed-round locking, score exhaustion and independent state. Browser checks should include Enter, input errors, hints, a completed round and reset.
 
-## Manual checks
+## Background and scope
 
-After changing the game, check empty input, high and low guesses, a correct guess, score exhaustion, and **Again!**. Confirm that reset restores the message, score, hidden number, input and background, while preserving the session high score.
+This repository began as a JavaScript course exercise. `starter/` preserves the learning scaffold; `final/` contains the maintained game. The rule model, validation, history and current interface extend that exercise. This is a small game, not a backend or multiplayer service. Scores are intentionally not saved after a reload.
