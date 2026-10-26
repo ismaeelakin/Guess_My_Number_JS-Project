@@ -2,7 +2,7 @@
 
 A small browser game with high/low hints, a session best score and keyboard controls. Find the hidden integer from 1 to 20 before the points run out.
 
-![Game screen](docs/game.png)
+![Game screen](docs/game-identity.png)
 
 [Open the live demo](https://ismaeelakin.github.io/Guess_My_Number_JS-Project/)
 
@@ -24,13 +24,7 @@ Serve the repository with `python -m http.server 8092 --bind 127.0.0.1`, then op
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  Input[Form submission] --> Rules[game.mjs: validate and update round]
-  Rules --> State[Immutable round state]
-  State --> View[script.js: render text and controls]
-  Reset[New round] --> State
-```
+![Architecture](docs/architecture-identity.svg)
 
 The rule functions are independent of the DOM. The browser adapter handles focus, events and the session best score. Rendering uses textContent; input never becomes HTML.
 
