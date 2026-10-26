@@ -4,6 +4,8 @@ A small browser game with high/low hints, a session best score and keyboard cont
 
 ![Game screen](docs/game.png)
 
+[Open the live demo](https://ismaeelakin.github.io/Guess_My_Number_JS-Project/)
+
 ## Play
 
 Serve the repository with `python -m http.server 8092 --bind 127.0.0.1`, then open <http://127.0.0.1:8092/final/>. No dependencies or build step are needed. ES modules require a local server.
@@ -38,4 +40,4 @@ Five tests cover random bounds, invalid and duplicate guesses, completed-round l
 
 ## Background and scope
 
-This repository began as a JavaScript course exercise. `starter/` preserves the learning scaffold; `final/` contains the maintained game. The rule model, validation, history and current interface extend that exercise. This is a small game, not a backend or multiplayer service. Scores are intentionally not saved after a reload.
+This repository began as a JavaScript course exercise. `final/` contains the maintained game. The earlier scaffold remains in Git history. The rule model, validation, history and current interface extend that exercise. This is a small game, not a backend or multiplayer service. Scores are intentionally not saved after a reload.

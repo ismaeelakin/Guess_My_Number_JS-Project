@@ -9,8 +9,11 @@ function render(message = 'Choose a number to begin.') {
   document.querySelector('#message').textContent = message;
   document.querySelector('#score').textContent = round.score;
   document.querySelector('#best').textContent = best;
-  document.querySelector('#number').textContent = round.status === 'playing' ? '?' : round.secret;
-  document.querySelector('#history').textContent = round.guesses.length ? round.guesses.join(', ') : 'No guesses yet';
+  document.querySelector('#number').textContent =
+    round.status === 'playing' ? '?' : round.secret;
+  document.querySelector('#history').textContent = round.guesses.length
+    ? round.guesses.join(', ')
+    : 'No guesses yet';
   input.disabled = round.status !== 'playing';
   form.querySelector('button').disabled = input.disabled;
   document.body.dataset.state = round.status;
