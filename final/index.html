@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Guess My Number!</title>
-  </head>
-  <body>
-    <header>
-      <h1>Guess My Number!</h1>
-      <p class="between">(Between 1 and 20)</p>
-      <button class="btn again">Again!</button>
-      <div class="number">?</div>
-    </header>
-    <main>
-      <section class="left">
-        <input type="number" class="guess" />
-        <button class="btn check">Check!</button>
-      </section>
-      <section class="right">
-        <p class="message">Start guessing...</p>
-        <p class="label-score">💯 Score: <span class="score">20</span></p>
-        <p class="label-highscore">
-          🥇 Highscore: <span class="highscore">0</span>
-        </p>
-      </section>
-    </main>
-    <script src="script.js"></script>
-  </body>
-</html>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A keyboard-friendly number guessing game. Find the number in 10 tries."><title>Guess My Number | Ismaeel Habeeb</title><link rel="stylesheet" href="style.css"><script type="module" src="script.js"></script></head>
+<body><main><header><a href="https://github.com/ismaeelakin/Guess_My_Number_JS-Project">Source code</a><span>01 / Browser games</span></header><section><p class="eyebrow">Twenty numbers. One answer.</p><h1>Find the number.</h1><p class="intro">I picked a whole number from 1 to 20. Use the hints to find it. Each new wrong guess costs one point.</p><div id="number" aria-label="Hidden number">?</div><form novalidate><label for="guess">Your guess</label><div class="entry"><input id="guess" type="number" min="1" max="20" step="1" inputmode="numeric" autocomplete="off"><button type="submit">Check number</button></div></form><p id="message" role="status" aria-live="polite"></p><dl><div><dt>Points left</dt><dd id="score">10</dd></div><div><dt>Session best</dt><dd id="best">0</dd></div></dl><p class="history">Tried numbers: <span id="history">No guesses yet</span></p><button id="again" class="secondary">New round</button></section><footer>Built with HTML, CSS and JavaScript. No account or tracking.<br>Best score lasts until you reload this page.</footer></main></body></html>
+
